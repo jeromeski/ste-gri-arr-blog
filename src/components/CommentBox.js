@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const CommentBox = () => {
-  return (
+class CommentBox extends Component {
+
+  componentDidMount() {
+    this.shouldNavigateAway()
+  }
+
+  componentDidUpdate() {
+    this.shouldNavigateAway()
+  }
+
+  shouldNavigateAway() {
+    if(!this.props.auth) {
+      console.log('Navigate away')
+    } else {
+      console.log('Navigate to page')
+    }
+  }
+
+  render() {
+    return (
     <div className="comment-box">
       <h1>Add a Comment</h1>
       <form className='form'>
@@ -11,7 +30,14 @@ const CommentBox = () => {
         <button className="btn">Fetch Comments</button>
       </form>
     </div>
-  );
-};
+    );
+  }
+}
 
-export default CommentBox;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(CommentBox) ;
