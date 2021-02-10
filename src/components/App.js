@@ -6,7 +6,7 @@ import CommentList from './CommentList';
 const App = () => {
   return (
     <div>
-      <Route path='/' component={CommentList}/>;
+      <Route exact path='/' component={CommentList}/>;
       <Route path='/post' component={CommentBox}/>
     </div>
   );
