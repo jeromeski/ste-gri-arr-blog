@@ -1,0 +1,15 @@
+.nav {
+  &__list {
+    display: flex;
+
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__item a {
+    font-size: 1.75rem;
+    color: #1d1d1d;
+    text-decoration: none;
+  }
+}

@@ -7,9 +7,7 @@ const INIT_STATE = [
 export const commentsReducer = (state = INIT_STATE, action) => {
   switch(action.type) {
     case FETCH_COMMENTS:
-      return {
-        ...state
-      }
+      return state
     default:
       return state
   }
