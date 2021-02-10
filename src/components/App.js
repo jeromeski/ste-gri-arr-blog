@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 import {Link, Route} from 'react-router-dom';
 import CommentBox from './CommentBox';
 import CommentList from './CommentList';
+import * as actions from '../actions';
 
 
 class App extends Component {
+
+  componentDidMount() {
+
+  }
+
   renderButton() {
-      if(this.props.isSignedIn) {
-        return <button>Sign Out</button>
+      if(this.props.auth) {
+        return <button onClick={() => this.props.changeAuth(false)}>Sign Out</button>
       } else {
-        return <button>Sign In</button>
+        return <button onClick={() => this.props.changeAuth(true)}>Sign In</button>
       }
   }
 
@@ -28,6 +34,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Fragment>
         <div className='nav'>{this.renderHeader()}</div>
@@ -46,4 +53,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, actions)(App);
