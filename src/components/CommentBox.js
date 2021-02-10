@@ -3,19 +3,7 @@ import { connect } from 'react-redux';
 
 class CommentBox extends Component {
 
-  componentDidMount() {
-    this.shouldNavigateAway()
-  }
-
-  componentDidUpdate() {
-    this.shouldNavigateAway()
-  }
-
-  shouldNavigateAway() {
-    if(!this.props.auth) {
-      this.props.history.push('/');
-    } 
-  }
+  
 
   render() {
     return (
