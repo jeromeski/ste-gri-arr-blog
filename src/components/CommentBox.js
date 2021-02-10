@@ -13,10 +13,8 @@ class CommentBox extends Component {
 
   shouldNavigateAway() {
     if(!this.props.auth) {
-      console.log('Navigate away')
-    } else {
-      console.log('Navigate to page')
-    }
+      this.props.history.push('/');
+    } 
   }
 
   render() {
